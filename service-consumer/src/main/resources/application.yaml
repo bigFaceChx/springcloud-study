@@ -1,0 +1,37 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: server-consumer-user
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+
+SERVICE-PRIVIDER-USER:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+hystrix:
+  command:
+    default:
+
+feign:
+  hystrix:
+    enabled: true
+  #开启压缩
+  compression:
+    request:
+      enabled: true
+      min-request-size: 1024
+      mime-types: text/xml,application/xml,application/json
+    response:
+      enabled: true
+logging:
+  level:
+    com.chx.zhyq: debug
+
+
+
+
+
